@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../node_modules/@coreui/coreui/scss/coreui";
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../node_modules/@coreui/coreui/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required CoreUI stylesheets
+@import "../../node_modules/@coreui/coreui/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../node_modules/@coreui/coreui/scss/maps";
+@import "../../node_modules/@coreui/coreui/scss/mixins";
+@import "../../node_modules/@coreui/coreui/scss/root";
+
+@import "../../node_modules/@coreui/chartjs/scss/coreui-chartjs";

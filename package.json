@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@coreui/angular": "^4.3.11",
+    "chart.js": "^3.9.1"
+  }
+}

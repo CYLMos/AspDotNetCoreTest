@@ -1,0 +1,61 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+<c-container *ngIf="forecasts">
+  <c-row>
+    <c-col class="test" md="3">Date</c-col>
+    <c-col class="test" md="3">Temp. (C)</c-col>
+    <c-col class="test" md="3">Temp. (F)</c-col>
+    <c-col class="test" md="3">Summary</c-col>
+  </c-row>
+  <c-row *ngFor="let forecast of forecasts">
+    <c-col md="3">{{ forecast.date }}</c-col>
+    <c-col md="3">{{ forecast.temperatureC }}</c-col>
+    <c-col md="3">{{ forecast.temperatureF }}</c-col>
+    <c-col md="3">{{ forecast.summary }}</c-col>
+  </c-row>
+</c-container>
+<button cButton color="primary" (click)="onUpdateLineChart()">Update Line Chart Data</button>
+<c-container>
+  <c-row class="justify-content-center">
+    <c-col md="8">
+      <c-chart [data]="lineData" type="line"></c-chart>
+    </c-col>
+  </c-row>
+  <c-row class="justify-content-center">
+    <c-col md="8">
+      <c-chart [data]="barData" type="bar"></c-chart>
+    </c-col>
+  </c-row>
+  <c-row class="justify-content-center">
+    <c-col md="8">
+      <c-chart [data]="radarData" type="radar"></c-chart>
+    </c-col>
+  </c-row>
+  <c-row class="justify-content-center">
+    <c-col md="8">
+      <c-chart [data]="doughnutData" type="doughnut"></c-chart>
+    </c-col>
+  </c-row>
+</c-container>
+<!--<table *ngIf="forecasts">
+  <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Temp. (F)</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let forecast of forecasts">
+            <td>{{ forecast.date }}</td>
+            <td>{{ forecast.temperatureC }}</td>
+            <td>{{ forecast.temperatureF }}</td>
+            <td>{{ forecast.summary }}</td>
+        </tr>
+    </tbody>
+</table>-->
