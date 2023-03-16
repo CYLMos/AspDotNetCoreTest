@@ -32,7 +32,7 @@ export class AppComponent {
   title = 'DotNetCoreWithAngular';
 
   onUpdateLineChart() {
-    const randomNumber1 = [
+    let randomNumber1 = [
       Math.floor(Math.random() * 101),
       Math.floor(Math.random() * 101),
       Math.floor(Math.random() * 101),
@@ -41,7 +41,7 @@ export class AppComponent {
       Math.floor(Math.random() * 101),
       Math.floor(Math.random() * 101),
     ];
-    const randomNumber2 = [
+    let randomNumber2 = [
       Math.floor(Math.random() * 101),
       Math.floor(Math.random() * 101),
       Math.floor(Math.random() * 101),
@@ -51,9 +51,10 @@ export class AppComponent {
       Math.floor(Math.random() * 101),
     ];
 
-    this.lineData.datasets[0].data = randomNumber1;
-    this.lineData.datasets[1].data = randomNumber2;
-    this.hubconnection.invoke('Update', this.lineData)
+    var data = Object.assign({}, this.lineData); 
+    data.datasets[0].data = randomNumber1;
+    data.datasets[1].data = randomNumber2;
+    this.hubconnection.invoke('Update', data)
   }
 
   initWebSocket() {
