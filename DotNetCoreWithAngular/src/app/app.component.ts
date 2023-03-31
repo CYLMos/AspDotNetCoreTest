@@ -15,7 +15,7 @@ export class AppComponent {
   public hubconnection!: HubConnection;
 
   constructor(http: HttpClient) {
-    this.initWebSocket();
+    this.initSignalr();
     //this.hubconnection.invoke('Register', 'User' + Math.floor(Math.random() * 10001));
 
     this.httpClient = http;
@@ -57,11 +57,11 @@ export class AppComponent {
     this.hubconnection.invoke('Update', data)
   }
 
-  initWebSocket() {
+  initSignalr() {
     this.hubconnection = new HubConnectionBuilder()
-      .withUrl('/test', {
-        skipNegotiation: false,
-        transport: HttpTransportType.ServerSentEvents
+      .withUrl('https://localhost:7250/test', {
+        skipNegotiation: true,
+        transport: HttpTransportType.WebSockets
       })
       .build();
 
@@ -80,7 +80,7 @@ export class AppComponent {
       () => this.hubconnection.invoke('Register', 'User' + Math.floor(Math.random() * 10001)).catch(
         function (err) {
           return console.error(err.toString());
-        }));
+        })).catch(err => console.error(err));
   }
 
   barData = {
